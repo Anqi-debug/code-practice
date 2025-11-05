@@ -1,3 +1,4 @@
+package E1103;
 import java.util.*;
 /*
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -7,7 +8,7 @@ int get(int key) Return the value of the key if the key exists, otherwise return
 void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache.
 If the number of keys exceeds the capacity from this operation, evict the least recently used key.
  */
-public class Main {
+public class Main03 {
     public static void main(String[] args) {
         LRUCache cache = new LRUCache(2);
         cache.put(1, 1);
@@ -53,6 +54,7 @@ class LRUCache {
         head.next = tail;
         tail.prev = head;
     }
+
     public int get(int key) {
         Node node = cache.get(key);
         //key does not exist
@@ -91,6 +93,7 @@ class LRUCache {
         head.next.prev = node;
         head.next = node;
     }
+
     private void removeNode(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
